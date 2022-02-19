@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.alexis-gousseau.com/$1 [R,L]
+ErrorDocument 404 /error404.php
+<IfModule mod_headers.c>
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always append X-Frame-Options SAMEORIGIN
+    Header always set X-Content-Type-Options nosniff
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Strict-Transport-Security: "max-age=15552001; includeSubDomains; preload"
+    Header set Permissions-Policy " autoplay=(), camera=(), document-domain=(), encrypted-media=(), geolocation=(), fullscreen=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), sync-xhr=(), usb=(), xr-spatial-tracking=()"
+</IfModule>

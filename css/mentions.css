@@ -1,0 +1,50 @@
+body{
+    align-items: flex-start;
+    font-size: 2rem;
+    transition: none;
+}
+h2{
+    font-size: 6rem;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 5rem;
+}
+a{
+    color: var(--color3);
+    text-decoration: underline;
+}
+a:hover{
+    color: var(--color1);
+    text-decoration: underline;
+}
+.mentions{
+    width: 100%;
+    height: auto;
+    padding: 0 8rem;
+}
+span{
+    color: var(--color3);
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+.circle {
+    bottom: -20rem;
+    right: 15rem;
+    width: 25rem;
+    height: 25rem;
+    padding: 5rem;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 800px) {
+    .mentions {
+        padding: 0 2rem;
+    }
+    h2 {
+        font-size: 4vh;
+        margin-top: 2rem;
+    }
+}
