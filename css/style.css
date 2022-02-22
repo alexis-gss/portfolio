@@ -64,7 +64,8 @@ input::placeholder, textarea::placeholder {
     opacity: .5;
 }
 .display{
-    display: none;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 /* NAVIGATION */
 .nav{
@@ -107,8 +108,10 @@ input::placeholder, textarea::placeholder {
     top: 0;
     right: 0;
     z-index: 4;
-    opacity: .2;
-    background-color: var(--color1);
+    opacity: .6;
+    visibility: visible;
+    transition: .3s;
+    background-color: black;
 }
 .menuContent{
     width: 0;
