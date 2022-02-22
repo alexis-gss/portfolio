@@ -229,6 +229,12 @@ input::placeholder, textarea::placeholder {
     align-items: center;
     cursor: pointer;
 }
+.homeSubtitleHook{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 .homeSubtitleCV{
     font-weight: 300;
     font-size: 3rem;

@@ -68,12 +68,12 @@
                 <h2 class="homeTitle">gousseau</h2>
             </div>
             <div class="homeSubtitle">
-                <a href="<?php echo urlCV; ?>" target="_blank">
+                <a class="homeSubtitleHook" href="<?php echo urlCV; ?>" target="_blank">
                     <h3 class="homeSubtitleCV"><?php echo voirCV; ?></h3>
+                    <svg class="homeSubtitleIcon">
+                        <use href="#icon-arrow-white"></use>
+                    </svg>
                 </a>
-                <svg class="homeSubtitleIcon">
-                    <use href="#icon-arrow-white"></use>
-                </svg>
             </div>
         </div>
         <div class="homeCard">
