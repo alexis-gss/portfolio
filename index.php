@@ -83,11 +83,10 @@
             <p class="homeCardDescription"><?php echo homeCardDescription; ?></p>
         </div>
         <form class="homeLanguages" method="POST" action="">
-            <select name="lang" class="homeLanguagesSelect">
+            <select name="lang" class="homeLanguagesSelect" onchange='if(this.value != 0) { this.form.submit(); }'>
                 <option class="homeLanguagesSelectOption" value="fr" <?php if ($_POST['lang'] == 'fr') echo 'selected="selected"'; ?>>français</option>
                 <option class="homeLanguagesSelectOption" value="en" <?php if ($_POST['lang'] == 'en') echo 'selected="selected"'; ?>>english</option>
             </select>
-            <input class="homeLanguagesSubmit" type="submit" title="<?php echo homeLanguagesSubmitTitle; ?>" value="<?php echo homeLanguagesSubmit; ?>">
         </form>
         <div class="circle">
             <a href="#projects">
