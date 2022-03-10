@@ -93,15 +93,15 @@
                 <svg class="circleArrow">
                     <use href="#icon-arrow-white"></use>
                 </svg>
+                <svg class="circleIcon" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
+                    <defs>
+                        <path id="circlePath" d="M 75, 75 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
+                    </defs>
+                    <text fill="var(--color1)">
+                        <textPath xlink:href="#circlePath">SCROLL SCROLL SCROLL SCROLL SCROLL SCROLL</textPath>
+                    </text>
+                </svg>
             </a>
-            <svg class="circleIcon" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
-                <defs>
-                    <path id="circlePath" d="M 75, 75 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
-                </defs>
-                <text fill="var(--color1)">
-                    <textPath xlink:href="#circlePath">SCROLL SCROLL SCROLL SCROLL SCROLL SCROLL</textPath>
-                </text>
-            </svg>
         </div>
     </section>
 
@@ -158,15 +158,15 @@
                 <svg class="circleArrow contactCircleArrow">
                     <use href="#icon-arrow-white"></use>
                 </svg>
+                <svg class="circleIcon" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
+                    <defs>
+                        <path id="circlePath" d="M 75, 75 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
+                    </defs>
+                    <text fill="var(--color1)">
+                        <textPath xlink:href="#circlePath">SCROLL SCROLL SCROLL SCROLL SCROLL SCROLL</textPath>
+                    </text>
+                </svg>
             </a>
-            <svg class="circleIcon" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
-                <defs>
-                    <path id="circlePath" d="M 75, 75 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
-                </defs>
-                <text fill="var(--color1)">
-                    <textPath xlink:href="#circlePath">SCROLL SCROLL SCROLL SCROLL SCROLL SCROLL</textPath>
-                </text>
-            </svg>
         </div>
     </section>
 
