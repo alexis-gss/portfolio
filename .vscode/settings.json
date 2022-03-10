@@ -4,23 +4,25 @@
     // #FFFFFF
 
     "workbench.colorCustomizations": {
-        "activityBar.background": "#FFB800",
-        "sash.hoverBorder": "#FFB800",
-        "statusBar.background": "#FFB800",
-        "titleBar.activeBackground": "#FFB800",
-        "activityBarBadge.background": "#FFB800",
+        "activityBar.background": "#1D1D1D",
+        "statusBar.background": "#1D1D1D",
+        "titleBar.activeBackground": "#1D1D1D",
+        "activityBarBadge.foreground": "#1D1D1D",
         
-        "titleBar.inactiveBackground": "#FFB80077",
+        "titleBar.inactiveBackground": "#1D1D1D77",
+        
         "titleBar.inactiveForeground": "#FFFFFF77",
+        "titleBar.activeForeground": "#FFFFFF77",
+        "activityBar.inactiveForeground": "#FFFFFF77",
+        "statusBar.foreground": "#FFFFFF77",
+
+        "activityBar.activeBackground": "#61616177",
 
         "icon.foreground": "#FFB800",
-        "titleBar.activeForeground": "#1D1D1D",
-        "statusBar.foreground": "#1D1D1D",
-        "activityBar.activeBackground": "#1D1D1D",
-        "activityBar.inactiveForeground": "#1D1D1D",
+        "activityBar.activeBorder": "#FFB800",
+        "activityBarBadge.background": "#FFB800",
+        "sash.hoverBorder": "#FFB800",
 
-        "activityBarBadge.foreground": "#FFFFFF",
-        "activityBar.foreground": "#FFFFFF",
-        "activityBar.activeBorder": "#FFFFFF"
+        "activityBar.foreground": "#FFFFFF"
     }
 }
