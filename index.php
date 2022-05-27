@@ -180,7 +180,7 @@
         </a>
         <div class="footerContent">
             <div class="footerContentFirstDiv">
-                <p class="footerCopyright">© 2021 alexis gousseau</p>
+                <p class="footerCopyright">© 2022 alexis gousseau</p>
                 <p class="footerDroits"><?php echo footerDroits; ?></p>
             </div>
             <div class="footerContentDiv">
