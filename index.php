@@ -24,6 +24,7 @@
     <link rel="icon" href="data/img/logo.png">
     <link rel="stylesheet" href="css/reboot.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slider.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400&display=swap" rel="stylesheet">
 </head>
@@ -107,37 +108,95 @@
 
     <!-- PROJECTS -->
     <section class="projects" id="projects">
-        <div class="projectDescription">
-            <div class="projectTitles">
-                <h2 class="projectTitle">Clone of</h2>
-                <h2 class="projectTitleLastWord">Wizard</h2>
+        <div class="slider">
+            <div class="slider-wrapper">
+                <div class="slider-item" data-primary-color="#254667" data-secondary-color="#305d8a">
+                    <div class="projectTitles">
+                        <h2 class="projectTitle">Clone of</h2>
+                        <h2 class="projectTitleLastWord">Wizard</h2>
+                    </div>
+                    <p class="projectSubtitle">Jeu de plateforme</p>
+                    <div class="slider-link-wrapper">
+                        <a href="https://www.alexis-gousseau.com/data/CloneOfWizard/CloneOfWizardWebsite.html" target="_blank">
+                            <img src="data/img/cloneofwizard.png" alt="Image vitrine du projet 'Clone of Wizard'">
+                        </a>
+                    </div>
+                </div>
+                <div class="slider-item" data-primary-color="#383737" data-secondary-color="#505050">
+                    <div class="projectTitles">
+                        <h2 class="projectTitle">Games</h2>
+                        <h2 class="projectTitleLastWord">Gallery</h2>
+                    </div>
+                    <p class="projectSubtitle">Gestionnaire d'images</p>
+                    <div class="slider-link-wrapper">
+                        <a href="https://www.alexis-gousseau.com/data/GalerieJeuxVideos/" target="_blank">
+                            <img src="data/img/galeriejeuxvideo.png" alt="Image vitrine du projet 'Galerie Jeux-videos'">
+                        </a>
+                    </div>
+                </div>
+                <div class="slider-item" data-primary-color="#26613c" data-secondary-color="#348051">
+                    <div class="projectTitles">
+                        <h2 class="projectTitle">Games</h2>
+                        <h2 class="projectTitleLastWord">News</h2>
+                    </div>
+                    <p class="projectSubtitle">Traitement de flux rss</p>
+                    <div class="slider-link-wrapper">
+                        <a href="https://www.alexis-gousseau.com/data/GamesNews/" target="_blank">
+                            <img src="data/img/gamesnews.png" alt="Image vitrine du projet 'Games News'">
+                        </a>
+                    </div>
+                </div>
+                <div class="slider-item" data-primary-color="#6d3939" data-secondary-color="#8e4c4c">
+                    <div class="projectTitles">
+                        <h2 class="projectTitle">Marvel</h2>
+                        <h2 class="projectTitleLastWord">Builder</h2>
+                    </div>
+                    <p class="projectSubtitle">Utilisation d'une API</p>
+                    <div class="slider-link-wrapper">
+                        <a href="https://marvelbuilder.netlify.app/" target="_blank">
+                            <img src="data/img/marvelbuilder.png" alt="Image vitrine du projet 'Marvel Builder'">
+                        </a>
+                    </div>
+                </div>
+                <div class="slider-item" data-primary-color="#1b304a" data-secondary-color="#004261">
+                    <div class="projectTitles">
+                        <h2 class="projectTitle">World</h2>
+                        <h2 class="projectTitleLastWord">Map</h2>
+                    </div>
+                    <p class="projectSubtitle">Carte du monde</p>
+                    <div class="slider-link-wrapper">
+                        <a href="https://www.alexis-gousseau.com/data/WorldMap/index.php" target="_blank">
+                            <img src="data/img/worldmap.png" alt="Image vitrine du projet 'World Map'">
+                        </a>
+                    </div>
+                </div>
+                <div class="slider-item" data-primary-color="#21507e" data-secondary-color="#306aa1">
+                    <div class="projectTitles">
+                        <h2 class="projectTitle">Tier</h2>
+                        <h2 class="projectTitleLastWord">List</h2>
+                    </div>
+                    <p class="projectSubtitle">Expérimentation 'glisser-déposer'</p>
+                    <div class="slider-link-wrapper">
+                        <a href="https://www.alexis-gousseau.com/data/TierList/index.php" target="_blank">
+                            <img src="data/img/tierlist.png" alt="Image vitrine du projet 'Tier List'">
+                        </a>
+                    </div>
+                </div>
             </div>
-            <p class="projectSubtitle">Jeu de plateforme</p>
+            <div class="slider-id-wrapper">
+                <svg class="slider-prev slider-inactivated">
+                    <use href="#icon-arrow-white"></use>
+                </svg>
+                <span class="slider-id-active"></span>
+                <span class="slider-id-separation"></span>
+                <span class="slider-id-max"></span>
+                <svg class="slider-next">
+                    <use href="#icon-arrow-white"></use>
+                </svg>
+            </div>
         </div>
 
-        <div class="projectsContent">
-            <div class="projectsBtns">
-                <svg class="projectsBtnsArrow projectsBtnsArrowLeft display">
-                    <use href="#icon-arrow-white"></use>
-                </svg>
-            </div>
-            <div class="projectsCard">
-                <a href="#" class="projectsCardUrl" target="_blank">
-                    <div class="projectsCardImg"></div>
-                </a>
-                <div class="projectsCardFond"></div>
-            </div>
-            <div class="projectsBtns">
-                <svg class="projectsBtnsArrow projectsBtnsArrowRight">
-                    <use href="#icon-arrow-white"></use>
-                </svg>
-            </div>
-            <div class="projectsId">
-                <p class="projectsCurrentId">01</p>
-                <span class="projectsIdSeparation"></span>
-                <p class="projectsTotalId">05</p>
-            </div>
-        </div> 
+
     </section>
 
     <!-- CONTACT -->
@@ -260,5 +319,6 @@
     </svg>
 
     <script src="js/main.js" async></script>
+    <script src="js/slider.js"></script>
 </body>
 </html>
