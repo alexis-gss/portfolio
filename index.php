@@ -34,7 +34,9 @@
     <!-- NAVIGATION -->
     <nav class="nav">
         <p class="navLogo">g<span>.</span></p>
-        <svg class="navIconMenu">
+        <svg class="navIconMenu" aria-labelledby="title">
+            <title>Bouton d'ouverture du menu</title>
+            <desc>Un bouton qui permet à l'utilisateur d'ouvrir le menu du site internet.</desc>
             <use href="#icon-menu"></use>
         </svg>
     </nav>
@@ -43,7 +45,9 @@
     <section class="menu">
         <div class="menuFiltre display"></div>
         <div class="menuContent">
-            <svg class="menuCrossIcon">
+            <svg class="menuCrossIcon" aria-labelledby="title">
+                <title>Bouton de fermeture du menu</title>
+                <desc>Un bouton qui permet à l'utilisateur de fermer le menu du site internet.</desc>
                 <use href="#icon-cross"></use>
             </svg>
             <div class="menuLinks">
@@ -71,7 +75,9 @@
             <div class="homeSubtitle">
                 <a class="homeSubtitleHook" href="<?php echo urlCV; ?>" target="_blank">
                     <h3 class="homeSubtitleCV"><?php echo voirCV; ?></h3>
-                    <svg class="homeSubtitleIcon">
+                    <svg class="homeSubtitleIcon" aria-labelledby="title">  
+                        <title>Flèche pour accéder au CV</title>
+                        <desc>Une flèche qui accompagne le bouton pour accéder au Curriculum Vitae.</desc>
                         <use href="#icon-arrow-white"></use>
                     </svg>
                 </a>
@@ -91,13 +97,15 @@
         </form>
         <div class="circle">
             <a href="#projects">
-                <svg class="circleArrow">
+                <svg class="circleArrow" aria-labelledby="title">
+                    <title>Flèche pour accéder au projets</title>
+                    <desc>Une flèche qui accompagne le bouton pour accéder aux projets.</desc>
                     <use href="#icon-arrow-white"></use>
                 </svg>
-                <svg class="circleIcon" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
-                    <defs>
-                        <path id="circlePath" d="M 75, 75 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
-                    </defs>
+                <svg class="circleIcon" aria-labelledby="title">
+                    <title>Cercle textuel</title>
+                    <desc>Un cercle textuel qui accompagne le bouton pour accéder aux projets.</desc>
+                    <use href="#icon-circle"></use>
                     <text fill="var(--color1)">
                         <textPath xlink:href="#circlePath">SCROLL SCROLL SCROLL SCROLL SCROLL SCROLL</textPath>
                     </text>
@@ -184,19 +192,21 @@
                 </div>
             </div>
             <div class="slider-id-wrapper">
-                <svg class="slider-prev slider-inactivated">
+                <svg class="slider-prev slider-inactivated" aria-labelledby="title">
+                    <title>Projet précédent</title>
+                    <desc>Une flèche qui permet à l'utilisateur de revenir au projet précédent.</desc>
                     <use href="#icon-arrow-white"></use>
                 </svg>
                 <span class="slider-id-active"></span>
                 <span class="slider-id-separation"></span>
                 <span class="slider-id-max"></span>
-                <svg class="slider-next">
+                <svg class="slider-next" aria-labelledby="title">
+                    <title>Projet suivant</title>
+                    <desc>Une flèche qui permet à l'utilisateur d'accéder au projet suivant.</desc>
                     <use href="#icon-arrow-white"></use>
                 </svg>
             </div>
         </div>
-
-
     </section>
 
     <!-- CONTACT -->
@@ -214,13 +224,15 @@
         <p class="inputSendMessage"><?php if(isset($msg)){ echo $msg; }; ?></p>
         <div class="circle">
             <a href="#">
-                <svg class="circleArrow contactCircleArrow">
+                <svg class="circleArrow contactCircleArrow" aria-labelledby="title">
+                    <title>Flèche pour accéder au projets</title>
+                    <desc>Une flèche qui accompagne le bouton pour accéder aux projets.</desc>
                     <use href="#icon-arrow-white"></use>
                 </svg>
-                <svg class="circleIcon" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
-                    <defs>
-                        <path id="circlePath" d="M 75, 75 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
-                    </defs>
+                <svg class="circleIcon" aria-labelledby="title">
+                    <title>Cercle textuel</title>
+                    <desc>Un cercle textuel qui accompagne le bouton pour accéder aux projets.</desc>
+                    <use href="#icon-circle"></use>
                     <text fill="var(--color1)">
                         <textPath xlink:href="#circlePath">SCROLL SCROLL SCROLL SCROLL SCROLL SCROLL</textPath>
                     </text>
@@ -232,7 +244,9 @@
     <!-- FOOTER -->
     <section class="footer">
         <a class="footerBtnHaut" href="#">
-            <svg class="circleArrow footerCircleArrow">
+            <svg class="circleArrow footerCircleArrow" aria-labelledby="title">
+                <title>Flèche pour revenir à l'accueil</title>
+                <desc>Une flèche qui accompagne le bouton pour revenir à l'accueil.</desc>
                 <use href="#icon-arrow-orange"></use>
             </svg>
             <p class="footerBtnArrow"><?php echo footerBtnArrow; ?></p>
@@ -250,12 +264,16 @@
                 <a href="<?php echo urlCV; ?>" target="_blank"><p class="footerMentions"><?php echo voirCV; ?></p></a>
                 <div class="footerReseaux">
                     <a href="https://www.linkedin.com/in/alexis-gousseau/" target="_blank">
-                        <svg class="footerReseauxIcon">
+                        <svg class="footerReseauxIcon" aria-labelledby="title">
+                            <title>Icône LinkedIn</title>
+                            <desc>Icône du réseau social LinkedIn donnant l'accès à l'utilisateur au compte Alexis Gousseau.</desc>
                             <use href="#icon-linkedin"></use>
                         </svg>
                     </a>
                     <a href="https://www.behance.net/alexisgousseau" target="_blank">
-                        <svg class="footerReseauxIcon">
+                        <svg class="footerReseauxIcon" aria-labelledby="title">
+                            <title>Icône Behance</title>
+                            <desc>Icône du réseau social Behance donnant l'accès à l'utilisateur au compte Alexis Gousseau.</desc>
                             <use href="#icon-behance"></use>
                         </svg>
                     </a>
@@ -314,6 +332,14 @@
                 <path d="M13.188 17.394c-0.463-0.35-1.075-0.525-1.838-0.525h-3.831v4.406h3.756c0.35 0 0.675-0.031 0.988-0.1s0.594-0.175 0.831-0.337c0.238-0.156 0.431-0.369 0.575-0.637s0.213-0.619 0.213-1.038c0-0.825-0.231-1.413-0.694-1.769z"></path>
                 <path d="M29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h26c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3zM20.975 8.419h6.481v1.581h-6.481v-1.581zM16.925 21.45c-0.313 0.594-0.738 1.075-1.262 1.45-0.531 0.375-1.137 0.65-1.819 0.831-0.675 0.181-1.375 0.269-2.088 0.269h-7.756v-15.994h7.537c0.762 0 1.456 0.069 2.088 0.2 0.625 0.131 1.162 0.356 1.613 0.662 0.444 0.306 0.794 0.713 1.044 1.219 0.244 0.5 0.369 1.131 0.369 1.875 0 0.806-0.181 1.475-0.55 2.012s-0.906 0.975-1.631 1.319c0.988 0.281 1.713 0.781 2.194 1.487 0.488 0.712 0.725 1.569 0.725 2.569 0.006 0.819-0.15 1.519-0.462 2.1zM29.981 18.975h-8.356c0 0.913 0.313 1.781 0.788 2.25 0.475 0.462 1.163 0.7 2.056 0.7 0.644 0 1.194-0.163 1.663-0.488 0.462-0.325 0.744-0.669 0.85-1.025h2.8c-0.45 1.394-1.131 2.387-2.063 2.988-0.919 0.6-2.044 0.9-3.35 0.9-0.913 0-1.731-0.15-2.469-0.438-0.738-0.294-1.35-0.706-1.869-1.244-0.506-0.538-0.894-1.181-1.175-1.931-0.275-0.744-0.419-1.575-0.419-2.469 0-0.869 0.144-1.675 0.425-2.425 0.288-0.75 0.688-1.4 1.212-1.938 0.525-0.544 1.15-0.975 1.875-1.294 0.725-0.313 1.525-0.469 2.413-0.469 0.981 0 1.837 0.188 2.575 0.575 0.731 0.381 1.331 0.894 1.806 1.537s0.806 1.375 1.019 2.2c0.206 0.813 0.275 1.669 0.219 2.569z"></path>
                 <path d="M24.269 14.494c-0.506 0-0.931 0.088-1.262 0.262s-0.6 0.387-0.806 0.637c-0.206 0.256-0.344 0.525-0.425 0.819-0.081 0.281-0.131 0.538-0.144 0.762h5.175c-0.075-0.813-0.356-1.412-0.731-1.831-0.387-0.425-1.025-0.65-1.806-0.65z"></path>
+            </symbol>
+        </defs>
+    </svg>
+
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+        <defs>
+            <symbol id="icon-circle" viewBox="0 0 32 32">
+                <path id="circlePath" d="M 75, 75 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
             </symbol>
         </defs>
     </svg>
