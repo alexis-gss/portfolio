@@ -29,14 +29,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1><?php echo h1; ?></h1>
+    <h1><?php echo homeH1; ?></h1>
 
     <!-- NAVIGATION -->
     <nav class="nav">
         <p class="navLogo">g<span>.</span></p>
         <svg class="navIconMenu" aria-labelledby="title">
-            <title>Bouton d'ouverture du menu</title>
-            <desc>Un bouton qui permet à l'utilisateur d'ouvrir le menu du site internet.</desc>
+            <title><?php echo menuSvgTitleIconMenu; ?></title>
+            <desc><?php echo menuSvgDescIconMenu; ?></desc>
             <use href="#icon-menu"></use>
         </svg>
     </nav>
@@ -46,8 +46,8 @@
         <div class="menuFiltre display"></div>
         <div class="menuContent">
             <svg class="menuCrossIcon" aria-labelledby="title">
-                <title>Bouton de fermeture du menu</title>
-                <desc>Un bouton qui permet à l'utilisateur de fermer le menu du site internet.</desc>
+                <title><?php echo menuSvgTitleCrossIcon; ?></title>
+                <desc><?php echo menuSvgDescCrossIcon; ?></desc>
                 <use href="#icon-cross"></use>
             </svg>
             <div class="menuLinks">
@@ -73,11 +73,11 @@
                 <h2 class="homeTitle">gousseau</h2>
             </div>
             <div class="homeSubtitle">
-                <a class="homeSubtitleHook" href="<?php echo urlCV; ?>" target="_blank">
-                    <h3 class="homeSubtitleCV"><?php echo voirCV; ?></h3>
-                    <svg class="homeSubtitleIcon" aria-labelledby="title">  
-                        <title>Flèche pour accéder au CV</title>
-                        <desc>Une flèche qui accompagne le bouton pour accéder au Curriculum Vitae.</desc>
+                <a class="homeSubtitleHook" href="<?php echo homeLinkCV; ?>" target="_blank">
+                    <h3 class="homeSubtitleCV"><?php echo homeLookCV; ?></h3>
+                    <svg class="homeSubtitleIcon" aria-labelledby="title">
+                        <title><?php echo homeSvgTitleSubtitleIcon; ?></title>
+                        <desc><?php echo homeSvgDescSubtitleIcon; ?></desc>
                         <use href="#icon-arrow-white"></use>
                     </svg>
                 </a>
@@ -98,13 +98,13 @@
         <div class="circle">
             <a href="#projects">
                 <svg class="circleArrow" aria-labelledby="title">
-                    <title>Flèche pour accéder au projets</title>
-                    <desc>Une flèche qui accompagne le bouton pour accéder aux projets.</desc>
+                    <title><?php echo homeSvgTitleCircleArrow; ?></title>
+                    <desc><?php echo homeSvgDescCircleArrow; ?></desc>
                     <use href="#icon-arrow-white"></use>
                 </svg>
                 <svg class="circleIcon" aria-labelledby="title">
-                    <title>Cercle textuel</title>
-                    <desc>Un cercle textuel qui accompagne le bouton pour accéder aux projets.</desc>
+                    <title><?php echo homeSvgTitleCircleIcon; ?></title>
+                    <desc><?php echo homeSvgDescCircleIcon; ?></desc>
                     <use href="#icon-circle"></use>
                     <text fill="var(--color1)">
                         <textPath xlink:href="#circlePath">SCROLL SCROLL SCROLL SCROLL SCROLL SCROLL</textPath>
@@ -123,7 +123,7 @@
                         <h2 class="projectTitle">Clone of</h2>
                         <h2 class="projectTitleLastWord">Wizard</h2>
                     </div>
-                    <p class="projectSubtitle">Jeu de plateforme</p>
+                    <p class="projectSubtitle"><?php echo projectDesc1; ?></p>
                     <div class="slider-link-wrapper">
                         <a href="https://www.alexis-gousseau.com/data/CloneOfWizard/CloneOfWizardWebsite.html" target="_blank">
                             <img src="data/img/cloneofwizard.png" alt="Image vitrine du projet 'Clone of Wizard'">
@@ -135,7 +135,7 @@
                         <h2 class="projectTitle">Games</h2>
                         <h2 class="projectTitleLastWord">Gallery</h2>
                     </div>
-                    <p class="projectSubtitle">Gestionnaire d'images</p>
+                    <p class="projectSubtitle"><?php echo projectDesc2; ?></p>
                     <div class="slider-link-wrapper">
                         <a href="https://www.alexis-gousseau.com/data/GalerieJeuxVideos/" target="_blank">
                             <img src="data/img/galeriejeuxvideo.png" alt="Image vitrine du projet 'Galerie Jeux-videos'">
@@ -147,7 +147,7 @@
                         <h2 class="projectTitle">Games</h2>
                         <h2 class="projectTitleLastWord">News</h2>
                     </div>
-                    <p class="projectSubtitle">Traitement de flux rss</p>
+                    <p class="projectSubtitle"><?php echo projectDesc3; ?></p>
                     <div class="slider-link-wrapper">
                         <a href="https://www.alexis-gousseau.com/data/GamesNews/" target="_blank">
                             <img src="data/img/gamesnews.png" alt="Image vitrine du projet 'Games News'">
@@ -159,7 +159,7 @@
                         <h2 class="projectTitle">Marvel</h2>
                         <h2 class="projectTitleLastWord">Builder</h2>
                     </div>
-                    <p class="projectSubtitle">Utilisation d'une API</p>
+                    <p class="projectSubtitle"><?php echo projectDesc4; ?></p>
                     <div class="slider-link-wrapper">
                         <a href="https://marvelbuilder.netlify.app/" target="_blank">
                             <img src="data/img/marvelbuilder.png" alt="Image vitrine du projet 'Marvel Builder'">
@@ -171,7 +171,7 @@
                         <h2 class="projectTitle">World</h2>
                         <h2 class="projectTitleLastWord">Map</h2>
                     </div>
-                    <p class="projectSubtitle">Carte du monde</p>
+                    <p class="projectSubtitle"><?php echo projectDesc5; ?></p>
                     <div class="slider-link-wrapper">
                         <a href="https://www.alexis-gousseau.com/data/WorldMap/index.php" target="_blank">
                             <img src="data/img/worldmap.png" alt="Image vitrine du projet 'World Map'">
@@ -183,7 +183,7 @@
                         <h2 class="projectTitle">Tier</h2>
                         <h2 class="projectTitleLastWord">List</h2>
                     </div>
-                    <p class="projectSubtitle">Expérimentation 'glisser-déposer'</p>
+                    <p class="projectSubtitle"><?php echo projectDesc6; ?></p>
                     <div class="slider-link-wrapper">
                         <a href="https://www.alexis-gousseau.com/data/TierList/index.php" target="_blank">
                             <img src="data/img/tierlist.png" alt="Image vitrine du projet 'Tier List'">
@@ -193,16 +193,16 @@
             </div>
             <div class="slider-id-wrapper">
                 <svg class="slider-prev slider-inactivated" aria-labelledby="title">
-                    <title>Projet précédent</title>
-                    <desc>Une flèche qui permet à l'utilisateur de revenir au projet précédent.</desc>
+                    <title><?php echo projectSvgTitleSliderPrev; ?></title>
+                    <desc><?php echo projectSvgDescSliderPrev; ?></desc>
                     <use href="#icon-arrow-white"></use>
                 </svg>
                 <span class="slider-id-active"></span>
                 <span class="slider-id-separation"></span>
                 <span class="slider-id-max"></span>
                 <svg class="slider-next" aria-labelledby="title">
-                    <title>Projet suivant</title>
-                    <desc>Une flèche qui permet à l'utilisateur d'accéder au projet suivant.</desc>
+                    <title><?php echo projectSvgTitleSliderNext; ?></title>
+                    <desc><?php echo projectSvgDescSliderNext; ?></desc>
                     <use href="#icon-arrow-white"></use>
                 </svg>
             </div>
@@ -214,24 +214,24 @@
         <h2 class="contactTitle"><?php echo contactTitle; ?></h2>
         <form class="contactForm" method="POST" action="#contact">
             <div class="contactFormInformations">
-                <input class="inputLastname" name="lastname" type="text" autocomplete="off" placeholder="<?php echo inputLastname; ?>" value="<?php if(isset($_POST['lastname'])) { echo $lastname; }; ?>">
-                <input class="inputFirstname" name="firstname" type="text" autocomplete="off" placeholder="<?php echo inputFirstname; ?>" value="<?php if(isset($_POST['firstname'])) { echo $firstname; }; ?>">
-                <input class="inputEmail" name="mail" type="email" autocomplete="off" placeholder="<?php echo inputEmail; ?>" value="<?php if(isset($_POST['mail'])) { echo $mail; }; ?>">
+                <input class="inputLastname" name="lastname" type="text" autocomplete="off" placeholder="<?php echo contactLastname; ?>" value="<?php if(isset($_POST['lastname'])) { echo $lastname; }; ?>">
+                <input class="inputFirstname" name="firstname" type="text" autocomplete="off" placeholder="<?php echo contactFirstname; ?>" value="<?php if(isset($_POST['firstname'])) { echo $firstname; }; ?>">
+                <input class="inputEmail" name="mail" type="email" autocomplete="off" placeholder="<?php echo contactEmail; ?>" value="<?php if(isset($_POST['mail'])) { echo $mail; }; ?>">
             </div>
-            <textarea class="inputMessage" name="message" autocomplete="off" placeholder="<?php echo inputMessage; ?>"><?php if(isset($_POST['message'])) { echo $message; }; ?></textarea>
-            <input class="inputBtnSend" name="sendMail" type="submit" value="<?php echo inputBtnSend; ?>">
+            <textarea class="inputMessage" name="message" autocomplete="off" placeholder="<?php echo contactMessage; ?>"><?php if(isset($_POST['message'])) { echo $message; }; ?></textarea>
+            <input class="inputBtnSend" name="sendMail" type="submit" value="<?php echo contactBtnSend; ?>">
         </form>
         <p class="inputSendMessage"><?php if(isset($msg)){ echo $msg; }; ?></p>
         <div class="circle">
             <a href="#">
                 <svg class="circleArrow contactCircleArrow" aria-labelledby="title">
-                    <title>Flèche pour accéder au projets</title>
-                    <desc>Une flèche qui accompagne le bouton pour accéder aux projets.</desc>
+                    <title><?php echo contactSvgTitleCircleArrow; ?></title>
+                    <desc><?php echo contactSvgDescCircleArrow; ?></desc>
                     <use href="#icon-arrow-white"></use>
                 </svg>
                 <svg class="circleIcon" aria-labelledby="title">
-                    <title>Cercle textuel</title>
-                    <desc>Un cercle textuel qui accompagne le bouton pour accéder aux projets.</desc>
+                    <title><?php echo contactSvgTitleCircleIcon; ?></title>
+                    <desc><?php echo contactSvgDescCircleIcon; ?></desc>
                     <use href="#icon-circle"></use>
                     <text fill="var(--color1)">
                         <textPath xlink:href="#circlePath">SCROLL SCROLL SCROLL SCROLL SCROLL SCROLL</textPath>
@@ -245,15 +245,15 @@
     <section class="footer">
         <a class="footerBtnHaut" href="#">
             <svg class="circleArrow footerCircleArrow" aria-labelledby="title">
-                <title>Flèche pour revenir à l'accueil</title>
-                <desc>Une flèche qui accompagne le bouton pour revenir à l'accueil.</desc>
+                <title><?php echo footerSvgTitleCircleArrow; ?></title>
+                <desc><?php echo footerSvgDescCircleArrow; ?></desc>
                 <use href="#icon-arrow-orange"></use>
             </svg>
             <p class="footerBtnArrow"><?php echo footerBtnArrow; ?></p>
         </a>
         <div class="footerContent">
             <div class="footerContentFirstDiv">
-                <p class="footerCopyright">© 2022 alexis gousseau</p>
+                <p class="footerCopyright">© 2022 Alexis Gousseau</p>
                 <p class="footerDroits"><?php echo footerDroits; ?></p>
             </div>
             <div class="footerContentDiv">
@@ -261,19 +261,19 @@
                 <a href="politiqueConfidentialite.html" target="_blank"><p class="footerMentions"><?php echo footerPolitique; ?></p></a>
             </div>
             <div class="footerContentDiv">
-                <a href="<?php echo urlCV; ?>" target="_blank"><p class="footerMentions"><?php echo voirCV; ?></p></a>
+                <a href="<?php echo homeLinkCV; ?>" target="_blank"><p class="footerMentions"><?php echo homeLookCV; ?></p></a>
                 <div class="footerReseaux">
                     <a href="https://www.linkedin.com/in/alexis-gousseau/" target="_blank">
                         <svg class="footerReseauxIcon" aria-labelledby="title">
-                            <title>Icône LinkedIn</title>
-                            <desc>Icône du réseau social LinkedIn donnant l'accès à l'utilisateur au compte Alexis Gousseau.</desc>
+                            <title><?php echo footerSvgTitleIconLinkedIn; ?></title>
+                            <desc><?php echo footerSvgDescIconLinkedIn; ?></desc>
                             <use href="#icon-linkedin"></use>
                         </svg>
                     </a>
                     <a href="https://www.behance.net/alexisgousseau" target="_blank">
                         <svg class="footerReseauxIcon" aria-labelledby="title">
-                            <title>Icône Behance</title>
-                            <desc>Icône du réseau social Behance donnant l'accès à l'utilisateur au compte Alexis Gousseau.</desc>
+                            <title><?php echo footerSvgTitleIconBehance; ?></title>
+                            <desc><?php echo footerSvgDescIconBehance; ?></desc>
                             <use href="#icon-behance"></use>
                         </svg>
                     </a>
