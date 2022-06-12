@@ -1,3 +1,5 @@
+# Portfolio
+
 <div align="center">
 
 ![Banner of the github account](./data/img/portfolio.jpg)
@@ -11,7 +13,7 @@
 
 </br>
 
-### Github repository of my portfolio available at this address :  : [alexis-gousseau.com](https://www.alexis-gousseau.com).
+### Github repository of my portfolio available at this address : [alexis-gousseau.com](https://www.alexis-gousseau.com).
 
 </br>
 
