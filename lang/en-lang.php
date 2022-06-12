@@ -12,6 +12,7 @@
     define("homeCardDescription", "web developer");
     define("homeLanguagesSubmit", "Translate");
     define("homeLanguagesSubmitTitle", "Translate the website");
+    define("homeAltPhoto", "Picture of Alexis Gousseau");
     define("homeSvgTitleSubtitleIcon", "Arrow to access the CV");
     define("homeSvgDescSubtitleIcon", "An arrow that matches the button to access the Curriculum Vitae.");
     define("homeSvgTitleCircleArrow", "Arrow to access the projects");

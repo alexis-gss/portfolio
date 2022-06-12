@@ -23,8 +23,7 @@
 	<title>Alexis Gousseau | Portfolio</title>
     <link rel="icon" href="data/img/logo.png">
     <link rel="stylesheet" href="css/reboot.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/app.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400&display=swap" rel="stylesheet">
 </head>
@@ -83,10 +82,11 @@
                 </a>
             </div>
         </div>
-        <div class="homeCard">
-            <div class="homeCardImg"></div>
-            <div class="homeCardFond"></div>
-            <div class="homeCardGradient"></div>
+        <div class="homeCard backgroundCard">
+            <div class="homeCardImg">
+                <img src="data/img/photo.jpg" alt="<?php echo homeAltPhoto; ?>Photo d'Alexis Gousseau">
+            </div>
+            <div class="cardGradient"></div>
             <p class="homeCardDescription"><?php echo homeCardDescription; ?></p>
         </div>
         <form class="homeLanguages" method="POST" action="">
@@ -124,7 +124,8 @@
                         <h2 class="projectTitleLastWord">Wizard</h2>
                     </div>
                     <p class="projectSubtitle"><?php echo projectDesc1; ?></p>
-                    <div class="slider-link-wrapper">
+                    <div class="slider-link-wrapper backgroundCard">
+                        <div class="cardGradient"></div>
                         <a href="https://www.alexis-gousseau.com/data/CloneOfWizard/CloneOfWizardWebsite.html" target="_blank">
                             <img src="data/img/cloneofwizard.png" alt="Image vitrine du projet 'Clone of Wizard'">
                         </a>
@@ -136,7 +137,8 @@
                         <h2 class="projectTitleLastWord">Gallery</h2>
                     </div>
                     <p class="projectSubtitle"><?php echo projectDesc2; ?></p>
-                    <div class="slider-link-wrapper">
+                    <div class="slider-link-wrapper backgroundCard">
+                        <div class="cardGradient"></div>
                         <a href="https://www.alexis-gousseau.com/data/GalerieJeuxVideos/" target="_blank">
                             <img src="data/img/galeriejeuxvideo.png" alt="Image vitrine du projet 'Galerie Jeux-videos'">
                         </a>
@@ -148,7 +150,8 @@
                         <h2 class="projectTitleLastWord">News</h2>
                     </div>
                     <p class="projectSubtitle"><?php echo projectDesc3; ?></p>
-                    <div class="slider-link-wrapper">
+                    <div class="slider-link-wrapper backgroundCard">
+                        <div class="cardGradient"></div>
                         <a href="https://www.alexis-gousseau.com/data/GamesNews/" target="_blank">
                             <img src="data/img/gamesnews.png" alt="Image vitrine du projet 'Games News'">
                         </a>
@@ -160,7 +163,8 @@
                         <h2 class="projectTitleLastWord">Builder</h2>
                     </div>
                     <p class="projectSubtitle"><?php echo projectDesc4; ?></p>
-                    <div class="slider-link-wrapper">
+                    <div class="slider-link-wrapper backgroundCard">
+                        <div class="cardGradient"></div>
                         <a href="https://marvelbuilder.netlify.app/" target="_blank">
                             <img src="data/img/marvelbuilder.png" alt="Image vitrine du projet 'Marvel Builder'">
                         </a>
@@ -172,7 +176,8 @@
                         <h2 class="projectTitleLastWord">Map</h2>
                     </div>
                     <p class="projectSubtitle"><?php echo projectDesc5; ?></p>
-                    <div class="slider-link-wrapper">
+                    <div class="slider-link-wrapper backgroundCard">
+                        <div class="cardGradient"></div>
                         <a href="https://www.alexis-gousseau.com/data/WorldMap/index.php" target="_blank">
                             <img src="data/img/worldmap.png" alt="Image vitrine du projet 'World Map'">
                         </a>
@@ -184,7 +189,8 @@
                         <h2 class="projectTitleLastWord">List</h2>
                     </div>
                     <p class="projectSubtitle"><?php echo projectDesc6; ?></p>
-                    <div class="slider-link-wrapper">
+                    <div class="slider-link-wrapper backgroundCard">
+                        <div class="cardGradient"></div>
                         <a href="https://www.alexis-gousseau.com/data/TierList/index.php" target="_blank">
                             <img src="data/img/tierlist.png" alt="Image vitrine du projet 'Tier List'">
                         </a>

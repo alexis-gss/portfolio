@@ -12,6 +12,7 @@
     define("homeCardDescription", "développeur web");
     define("homeLanguagesSubmit", "Traduire");
     define("homeLanguagesSubmitTitle", "Traduire le site");
+    define("homeAltPhoto", "Photo d'Alexis Gousseau");
     define("homeSvgTitleSubtitleIcon", "Flèche pour accéder au CV");
     define("homeSvgDescSubtitleIcon", "Une flèche qui accompagne le bouton pour accéder au Curriculum Vitae.");
     define("homeSvgTitleCircleArrow", "Flèche pour accéder au projets");

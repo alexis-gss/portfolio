@@ -1,0 +1,15 @@
+/* PARAMETRES */
+:root {
+    --colorDefault: #333333;
+    --color1: #ffffff;
+    --color2: #212121;
+    --color3: #ffb800;
+    --color4: #333333;
+}
+::-webkit-scrollbar {
+    background: var(--color4);
+    width: 14px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color3);
+}
