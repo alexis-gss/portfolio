@@ -44,6 +44,8 @@
     define("footerPolitique", "French privacy policy");
     define("footerSvgTitleCircleArrow", "Arrow to return to the home page");
     define("footerSvgDescCircleArrow", "An arrow that matches the button to return to the home page.");
+    define("footerSvgTitleIconGithub", "Github icon");
+    define("footerSvgDescIconGithub", "Icon of the social network Github giving the user access to the Alexis Gousseau account.");
     define("footerSvgTitleIconLinkedIn", "LinkedIn icon");
     define("footerSvgDescIconLinkedIn", "Icon of the social network LinkedIn giving the user access to the Alexis Gousseau account.");
     define("footerSvgTitleIconBehance", "Behance icon");
