@@ -12,6 +12,7 @@
     define("homeCardDescription", "développeur web");
     define("homeLanguagesSubmit", "Traduire");
     define("homeLanguagesSubmitTitle", "Traduire le site");
+    define("homeAltPhoto", "Photo d'Alexis Gousseau");
     define("homeSvgTitleSubtitleIcon", "Flèche pour accéder au CV");
     define("homeSvgDescSubtitleIcon", "Une flèche qui accompagne le bouton pour accéder au Curriculum Vitae.");
     define("homeSvgTitleCircleArrow", "Flèche pour accéder au projets");
@@ -44,6 +45,8 @@
     define("footerPolitique", "Politique de confidentialité françaises");
     define("footerSvgTitleCircleArrow", "Flèche pour revenir à l'accueil");
     define("footerSvgDescCircleArrow", "Une flèche qui accompagne le bouton pour revenir à l'accueil.");
+    define("footerSvgTitleIconGithub", "Icône Github");
+    define("footerSvgDescIconGithub", "Icône du réseau social Github donnant l'accès à l'utilisateur au compte Alexis Gousseau.");
     define("footerSvgTitleIconLinkedIn", "Icône LinkedIn");
     define("footerSvgDescIconLinkedIn", "Icône du réseau social LinkedIn donnant l'accès à l'utilisateur au compte Alexis Gousseau.");
     define("footerSvgTitleIconBehance", "Icône Behance");

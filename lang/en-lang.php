@@ -12,6 +12,7 @@
     define("homeCardDescription", "web developer");
     define("homeLanguagesSubmit", "Translate");
     define("homeLanguagesSubmitTitle", "Translate the website");
+    define("homeAltPhoto", "Picture of Alexis Gousseau");
     define("homeSvgTitleSubtitleIcon", "Arrow to access the CV");
     define("homeSvgDescSubtitleIcon", "An arrow that matches the button to access the Curriculum Vitae.");
     define("homeSvgTitleCircleArrow", "Arrow to access the projects");
@@ -44,6 +45,8 @@
     define("footerPolitique", "French privacy policy");
     define("footerSvgTitleCircleArrow", "Arrow to return to the home page");
     define("footerSvgDescCircleArrow", "An arrow that matches the button to return to the home page.");
+    define("footerSvgTitleIconGithub", "Github icon");
+    define("footerSvgDescIconGithub", "Icon of the social network Github giving the user access to the Alexis Gousseau account.");
     define("footerSvgTitleIconLinkedIn", "LinkedIn icon");
     define("footerSvgDescIconLinkedIn", "Icon of the social network LinkedIn giving the user access to the Alexis Gousseau account.");
     define("footerSvgTitleIconBehance", "Behance icon");
