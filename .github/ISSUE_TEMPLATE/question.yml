@@ -1,0 +1,19 @@
+name: 💬 Question
+description: Ask your question.
+title: "Title"
+labels: ["type: question"]
+assignees:
+  - alexis-gss
+body:
+  - type: textarea
+    id: your-question
+    attributes:
+      label: Your question
+      description: A clear and concise description of your question.
+      placeholder: A clear and concise description of your question.
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this question form, someone will answer you soon !

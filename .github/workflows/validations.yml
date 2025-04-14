@@ -1,0 +1,14 @@
+name: Github actions validations
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  validation-typescript:
+    name: Validation typescript
+    uses: alexis-gss/github-workflows/.github/workflows/validation-typescript.yml@master
