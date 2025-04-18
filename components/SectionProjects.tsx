@@ -128,6 +128,7 @@ export default function SectionProjects() {
                     aria-expanded={open}
                     className="w-[calc(100%-36px-var(--spacing)*4)] justify-between cursor-pointer"
                     disabled={loading}
+                    aria-label="Select a tag to filter projects"
                   >
                     {selectedTag || "Select a tag..."}
                     <ChevronsUpDown className="opacity-50" />
@@ -179,6 +180,7 @@ export default function SectionProjects() {
                   setCurrentPage(1);
                 }}
                 disabled={!search?.length && !selectedTag}
+                aria-label="Remove filters"
               >
                 <Eraser />
               </Button>

@@ -38,6 +38,7 @@ const Pagination: React.FC<PaginationProps> = ({
           onClick={() => onPageChange(page)}
           variant={page === currentPage ? "secondary" : "default"}
           disabled={page === currentPage}
+          aria-label={`Access to the page n°${page}`}
         >
           {page}
         </Button>
@@ -53,6 +54,7 @@ const Pagination: React.FC<PaginationProps> = ({
             className="cursor-pointer gap-1 hover:-translate-y-0.5 focus:-translate-y-0.5"
             onClick={handlePrevious}
             disabled={currentPage === 1}
+            aria-label="Access to the previous page"
           >
             <ChevronLeft />
             <span className="hidden sm:block mb-[2px]">Previous</span>
@@ -62,6 +64,7 @@ const Pagination: React.FC<PaginationProps> = ({
             className="cursor-pointer gap-1 hover:-translate-y-0.5 focus:-translate-y-0.5"
             onClick={handleNext}
             disabled={currentPage === totalPages}
+            aria-label="Access to the next page"
           >
             <span className="hidden sm:block mb-[2px]">Next</span>
             <ChevronRight />

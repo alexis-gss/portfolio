@@ -34,7 +34,7 @@ const AppFooter: React.FC = () => {
                   size="icon"
                   asChild
                 >
-                  <Link href="#home">
+                  <Link href="#home" aria-label="Scoll to the top of the page">
                     <ArrowUp />
                   </Link>
                 </Button>

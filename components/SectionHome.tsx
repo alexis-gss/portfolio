@@ -64,14 +64,14 @@ export default function SectionHome() {
             </motion.span>
           ))}
         </h1>
-        <motion.p
+        <motion.h2
           initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           transition={{ duration: 0.3, delay: 0.6, ease: "easeInOut" }}
           className="relative text-center text-lg font-normal text-neutral-600 dark:text-neutral-400 mx-auto pb-4"
         >
           Full-stack web developer and database conceptor
-        </motion.p>
+        </motion.h2>
         <motion.div
           initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
