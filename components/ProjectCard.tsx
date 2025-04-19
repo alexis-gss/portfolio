@@ -32,7 +32,7 @@ export default function ProjectCard(props: {
           {props.preview && (
             <AspectRatio
               ratio={16 / 9}
-              className="relative rounded-xl overflow-hidden group-hover:shadow-xl duration-300"
+              className="relative rounded-xl overflow-hidden group-hover:shadow-xl duration-300 border"
             >
               <Image
                 src={props.preview}

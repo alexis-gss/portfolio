@@ -177,7 +177,7 @@ export default function Page() {
             </>
           ) : (
             <>
-              <div className="flex flex-col items-center md:items-left pt-8 w-full">
+              <div className="flex flex-col items-center md:items-start pt-8 w-full">
                 <Skeleton className="h-12 w-1/2" />
                 <Skeleton className="h-4 w-1/3 mt-2" />
                 <Skeleton className="h-6 w-full mt-8" />

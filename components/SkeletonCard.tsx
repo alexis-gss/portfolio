@@ -3,13 +3,7 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Skeleton } from "@/components/ui/skeleton";
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function SkeletonCard() {
   return (
@@ -29,9 +23,6 @@ export default function SkeletonCard() {
         >
           <Skeleton className="w-full h-full" />
         </AspectRatio>
-        <div className="flex justify-between items-center mt-4 md:mt-4">
-          <Skeleton className="h-8 w-[5rem]" />
-        </div>
       </CardContent>
     </Card>
   );
