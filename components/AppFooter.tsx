@@ -69,6 +69,21 @@ const AppFooter: React.FC = () => {
                   </a>
                 </Button>
               </li>
+              <li className="flex flex-row justify-center items-center gap-4">
+                <Button
+                  className="cursor-pointer transform rounded-lg dark:text-white dark:bg-opacity-100 hover:dark:bg-opacity-100 px-3 py-2 transition-all duration-300 hover:-translate-y-0.5 focus:-translate-y-0.5 z-1"
+                  variant="outline"
+                  asChild
+                >
+                  <a
+                    href="https://stats.uptimerobot.com/gVFLoANSJb"
+                    target="_blank"
+                  >
+                    <span className="w-[1rem] h-[1rem] bg-green-400 rounded-full"></span>
+                    Status
+                  </a>
+                </Button>
+              </li>
             </ul>
             <ul className="flex flex-col sm:flex-row justify-center items-center list-none gap-4">
               <li>© {currentYear} Alexis Gousseau</li>
