@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
     },
     experimental: {
         scrollRestoration: true,
+        ...( { systemNext: false } ),
     },
 };
 
