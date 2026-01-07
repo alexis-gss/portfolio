@@ -6,6 +6,22 @@ All notable changes to `portfolio` will be documented in this file.
 - This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html),
 - Commits respect [Conventionnal commits](https://www.conventionalcommits.org/en/v1.0.0/) & use [Gitmoji](https://gitmoji.dev/).
 
+## **[v2.1.0] - 07.01.25**
+
+### Added
+- chore: 🔒 add robots.txt
+- feat: ✨ add animation on UptimeRobot icon
+- feat: ✨ add button for web projects status
+- feat: ✨ add loading page when load project data
+
+### Changed
+- chore: 💚 update github actions (validations and deployment)
+- fix: ♿️ update accessibility on buttons/links
+- fix: 🐛 update skeleton part (button & position)
+- fix: 🎨 set github api calls server side
+
+Full changelog: https://github.com/alexis-gss/portfolio/compare/v2.0.0...v2.1.0
+
 ## **[v2.0.0] - 14.04.25**
 
 ### Added
