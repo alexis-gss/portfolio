@@ -1,4 +1,4 @@
-name: Github actions validations
+name: Github actions
 
 on:
   push:
@@ -12,3 +12,9 @@ jobs:
   validation-typescript:
     name: Validation typescript
     uses: alexis-gss/github-workflows/.github/workflows/validation-typescript.yml@master
+  deployment:
+    name: Deployment production
+    needs: ['validation-typescript']
+    uses: alexis-gss/github-workflows/.github/workflows/deployment.yml@master
+    secrets: inherit
+    if: github.ref == 'refs/heads/master'
