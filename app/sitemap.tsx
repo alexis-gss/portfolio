@@ -1,28 +1,27 @@
-import { GithubRepo } from "@/types/types";
-import { fetchGitHubData } from "@/lib/fetchGitHubData";
+import { getAllRepos } from "@/lib/github";
+import type { MetadataRoute } from "next";
 
-async function fetchDynamicUrls() {
-  const repos = await fetchGitHubData<GithubRepo[]>("users/alexis-gss/repos");
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const { repos } = await getAllRepos();
 
-  return repos
-    .filter((project) => project.name !== "alexis-gss")
-    .map((project: GithubRepo) => ({
-      url: `https://alexis-gousseau.com/${project.name}`,
-      lastModified: new Date().toISOString(),
+  if (!repos || repos.length === 0) return [];
+
+  const dynamicUrls: MetadataRoute.Sitemap = repos
+    .filter((repo) => repo.name !== "alexis-gss")
+    .map((repo) => ({
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${repo.name}`,
+      lastModified: new Date(repo.updated_at || Date.now()),
       changeFrequency: "monthly",
       priority: 0.8,
     }));
-}
 
-export default async function sitemap() {
-  const rootUrl = {
-    url: "https://alexis-gousseau.com",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "monthly",
-    priority: 1,
-  };
-
-  const dynamicUrls = await fetchDynamicUrls();
-
-  return [rootUrl, ...dynamicUrls];
+  return [
+    {
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1,
+    },
+    ...dynamicUrls,
+  ];
 }

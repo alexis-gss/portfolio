@@ -8,11 +8,11 @@ import AppHeader from "@/components/AppHeader";
 
 const title = "Portfolio - Alexis Gousseau";
 const description = "Website presenting Alexis Gousseau's profile as a full-stack web developer and database designer.";
-const url = "https://alexis-gousseau.com";
+const url = `${process.env.NEXT_PUBLIC_SITE_URL}`;
 const image = "/images/preview-project.png";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://alexis-gousseau.com"),
+  metadataBase: new URL(url),
   title: title,
   description: description,
   keywords: [

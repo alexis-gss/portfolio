@@ -1,97 +1,67 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import ProjectCard from "@/components/ProjectCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Pagination from "@/components/Pagination";
 import useWindowSize from "@/hook/use-window-size";
-import FetchGitHubData from "@/hook/use-github-api";
 import { cn } from "@/lib/utils";
 import { Check, ChevronsUpDown, Eraser } from "lucide-react";
-import { GithubRepo, GraphqlSocialPreview } from "@/types/types";
-import FetchGraphqlData from "@/hook/use-graphql-api";
-import SkeletonCard from "./SkeletonCard";
+import { GithubPreviews, GithubRepo } from "@/types/types";
 
-export default function SectionProjects() {
-  const { data, loading, error } = FetchGitHubData<GithubRepo[]>(
-    "users/alexis-gss/repos",
-    []
-  );
+type Props = {
+  repos: GithubRepo[];
+  previews: GithubPreviews;
+};
 
+export default function SectionProjects({ repos, previews }: Props) {
   const { width } = useWindowSize();
-
-  // Filters.
   const [allProjects, setAllProjects] = useState<GithubRepo[]>([]);
+  const [filteredProjects, setFilteredProjects] = useState<GithubRepo[]>([]);
   const [search, setSearch] = useState<string | null>(null);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [tags, setTags] = useState<string[]>([]);
-  const [open, setOpen] = useState<boolean>(false);
-  const [filteredProjects, setFilteredProjects] = useState<GithubRepo[]>([]);
+  const [open, setOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = width < 768 ? 4 : 8;
 
   useEffect(() => {
-    if (data) {
-      setAllProjects(data.filter((project) => project.name !== "alexis-gss"));
-    }
-  }, [data]);
+    setAllProjects(repos);
+  }, [repos]);
 
   useEffect(() => {
-    if (allProjects) {
-      const filtered = allProjects.filter((project) => {
-        const matchesSearch =
-          !search ||
-          project.name.toLowerCase().includes(search.toLowerCase()) ||
-          project.description?.toLowerCase().includes(search.toLowerCase());
-        const matchesTopics =
-          !selectedTag || project.topics?.includes(selectedTag);
-        return matchesSearch && matchesTopics;
-      });
-      setFilteredProjects(filtered);
-    }
+    const filtered = allProjects.filter((project) => {
+      const matchesSearch =
+        !search ||
+        project.name.toLowerCase().includes(search.toLowerCase()) ||
+        project.description?.toLowerCase().includes(search.toLowerCase());
+      const matchesTag = !selectedTag || project.topics?.includes(selectedTag);
+      return matchesSearch && matchesTag;
+    });
+    setFilteredProjects(filtered);
   }, [search, selectedTag, allProjects]);
 
   useEffect(() => {
-    if (allProjects) {
-      const allTags = [
-        ...new Set(allProjects.flatMap((item) => item.topics || [])),
-      ].sort();
-      setTags(allTags);
-    }
+    setTags([...new Set(allProjects.flatMap((p) => p.topics || []))].sort());
   }, [allProjects]);
 
-  const fields = useMemo(() => {
-    return allProjects
-      .map(
-        (repo, index) =>
-          `repo${String(index + 1).padStart(2, "0")}: repository(owner: "alexis-gss", name: "${
-            repo.name
-          }") { openGraphImageUrl }`
-      )
-      .join("\n");
-  }, [allProjects]);
-  const {
-    data: graphqlData,
-    loading: graphqlLoading,
-    error: graphqlError,
-  } = FetchGraphqlData<GraphqlSocialPreview | null>(
-    fields
-      ? `
-      query GetRepositoriesOpenGraphImages {
-        ${fields}
-      }
-    `
-      : "",
-    null
-  );
-
-  // Pagination.
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = width < 768 ? 4 : 8;
-  const paginateFilteredProjects = useMemo(() => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    return filteredProjects.slice(startIndex, startIndex + itemsPerPage);
+  const paginatedProjects = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage;
+    return filteredProjects.slice(start, start + itemsPerPage);
   }, [filteredProjects, currentPage, itemsPerPage]);
 
   return (
@@ -103,21 +73,16 @@ export default function SectionProjects() {
         <h3 className="relative bg-gradient-to-b from-[#18CCFC] to-[#6344F5] bg-clip-text text-4xl sm:text-7xl font-bold text-transparent text-center md:text-start pb-4 mt-4">
           Projects
         </h3>
-        {error && <p className="text-red-600 mt-4">{error}</p>}
-        {/* Filters */}
         <div className="sticky top-0 flex flex-col lg:flex-row justify-between items-center bg-background py-4 z-50">
           <div className="flex flex-col md:flex-row justify-center lg:justify-start items-center gap-4 w-full">
             <Input
               value={search || ""}
-              placeholder={`Search among ${
-                filteredProjects.length ?? 0
-              } projects`}
-              onChange={(event) => {
-                setSearch(event.target.value);
+              placeholder={`Search among ${filteredProjects.length} projects`}
+              onChange={(e) => {
+                setSearch(e.target.value);
                 setCurrentPage(1);
               }}
               className="max-w-[20rem]"
-              disabled={loading}
             />
             <div className="flex flex-row justify-end items-center gap-4 max-w-[20rem] w-full">
               <Popover open={open} onOpenChange={setOpen}>
@@ -127,7 +92,6 @@ export default function SectionProjects() {
                     role="combobox"
                     aria-expanded={open}
                     className="w-[calc(100%-36px-var(--spacing)*4)] justify-between cursor-pointer"
-                    disabled={loading}
                     aria-label="Select a tag to filter projects"
                   >
                     {selectedTag || "Select a tag..."}
@@ -144,12 +108,8 @@ export default function SectionProjects() {
                           <CommandItem
                             key={tag}
                             value={tag}
-                            onSelect={(currentValue: string) => {
-                              setSelectedTag(
-                                currentValue === selectedTag
-                                  ? null
-                                  : currentValue
-                              );
+                            onSelect={() => {
+                              setSelectedTag(tag === selectedTag ? null : tag);
                               setOpen(false);
                               setCurrentPage(1);
                             }}
@@ -158,7 +118,7 @@ export default function SectionProjects() {
                             <Check
                               className={cn(
                                 "ml-auto",
-                                selectedTag === tag
+                                tag === selectedTag
                                   ? "opacity-100"
                                   : "opacity-0"
                               )}
@@ -179,7 +139,7 @@ export default function SectionProjects() {
                   setSelectedTag(null);
                   setCurrentPage(1);
                 }}
-                disabled={!search?.length && !selectedTag}
+                disabled={!search && !selectedTag}
                 aria-label="Remove filters"
               >
                 <Eraser />
@@ -190,45 +150,29 @@ export default function SectionProjects() {
             totalItems={filteredProjects.length}
             itemsPerPage={itemsPerPage}
             currentPage={currentPage}
-            onPageChange={(page: number) => setCurrentPage(page)}
+            onPageChange={setCurrentPage}
           />
         </div>
-        {/* Projects */}
-        {!loading && !graphqlLoading && graphqlData?.data ? (
-          graphqlError ? (
-            <p className="text-red-600 mt-4">{graphqlError}</p>
-          ) : paginateFilteredProjects.length ? (
-            <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 pt-1">
-                {paginateFilteredProjects.map((paginateProject, index) => {
-                  const filteredIndex = allProjects.findIndex((project) => project.name === paginateProject.name) + 1;
-                  return (
-                    <ProjectCard
-                      key={index}
-                      project={paginateProject}
-                      preview={
-                        graphqlData?.data[
-                          `repo${String(filteredIndex).padStart(2, "0")}` as keyof typeof graphqlData.data
-                        ].openGraphImageUrl
-                      }
-                    />
-                  );
-                })}
-              </div>
-              {currentPage > filteredProjects.length / itemsPerPage && (
-                <p className="text-center italic mt-4">
-                  All {selectedTag !== null && "filtered"} projects are displayed
-                </p>
-              )}
-            </>
-          ) : (
-            <p className="text-center italic">No projects</p>
-          )
-        ) : (
+        {paginatedProjects.length ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 pt-1">
-            {Array.from({ length: itemsPerPage }).map((_, index) => (
-              <SkeletonCard key={index} />
-            ))}
+            {paginatedProjects.map((project, index) => {
+              const repoIndex =
+                allProjects.findIndex((p) => p.name === project.name) + 1;
+              return (
+                <ProjectCard
+                  key={index}
+                  project={project}
+                  preview={
+                    previews[`repo${String(repoIndex).padStart(2, "0")}`]
+                      ?.openGraphImageUrl
+                  }
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-4 pt-1">
+            <p className="text-center italic">No projects</p>
           </div>
         )}
       </div>

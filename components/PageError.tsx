@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 
 export default function PageError() {
@@ -17,7 +17,7 @@ export default function PageError() {
         }}
         className="relative bg-gradient-to-b from-[#18CCFC] to-[#6344F5] bg-clip-text text-4xl sm:text-7xl font-bold text-transparent text-center pb-4"
       >
-        Error
+        Error 404
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
@@ -25,7 +25,7 @@ export default function PageError() {
         transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
         className="relative text-center text-lg font-normal text-neutral-600 dark:text-neutral-400 mx-auto pb-4"
       >
-        There seems to be an error...
+        No project found...
       </motion.p>
       <motion.div
         initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}

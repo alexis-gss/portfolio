@@ -1,40 +1,16 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { IconFolders } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
-import FetchGraphqlData from "@/hook/use-graphql-api";
-import { GraphqlData } from "@/types/types";
 import PinnedProject from "@/components/PinnedProject";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { ChevronDown, Github } from "lucide-react";
+import { GithubPinnedData } from "@/types/types";
 
-export default function SectionHome() {
-  const {
-    data: graphqlData,
-    loading: graphqlLoading,
-    error: graphqlError,
-  } = FetchGraphqlData<GraphqlData | null>(
-    `query GetPinnedRepos() {
-      user(login: "alexis-gss") {
-        pinnedItems(first: 6, types: REPOSITORY) {
-          nodes {
-            ... on Repository {
-              name
-              description
-              url
-              stargazerCount
-              forkCount
-            }
-          }
-        }
-      }
-    }`,
-    null
-  );
-
+export default function SectionHome({ graphqlData }: { graphqlData: GithubPinnedData }) {
   return (
     <section id="home" className="relative overflow-hidden w-full min-h-screen">
       <motion.div
@@ -99,68 +75,64 @@ export default function SectionHome() {
             </a>
           </Button>
         </motion.div>
-        {!graphqlLoading ? (
-          <>
-            {graphqlError ? (
-              <p className="text-red-600 mt-4">{graphqlError}</p>
-            ) : (
-              <>
-                <motion.div
-                  initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
-                  animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                  transition={{ duration: 0.3, delay: 1.2, ease: "easeInOut" }}
-                  className="hidden md:block text-center z-1"
-                >
-                  <small className="text-muted-foreground mx-auto">
-                    Pinned projects
-                  </small>
-                  <div className="grid grid-col-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 w-fit mt-4">
-                    {graphqlData?.data.user.pinnedItems.nodes?.map(
-                      (graphqElement, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
-                          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                          transition={{
-                            duration: 0.3,
-                            delay: index * 0.1 + 1.2,
-                            ease: "easeInOut",
-                          }}
-                        >
-                          <PinnedProject project={graphqElement} />
-                        </motion.div>
-                      )
-                    )}
-                  </div>
-                </motion.div>
-                <motion.div
-                  className="absolute bottom-24 md:bottom-10 left-1/2 transform -translate-x-1/2 z-1"
-                  initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
-                  animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                  transition={{ duration: 0.3, delay: 1.8, ease: "easeInOut" }}
-                >
-                  <div className="flex flex-col gap-1 items-center text-muted-foreground">
-                    <small className="text-muted-foreground mx-auto">
-                      Scroll to discover
-                    </small>
-                    <motion.span
-                      animate={{ y: [0, 8, 0] }}
+        {graphqlData ? (
+          graphqlData.error ? (
+            <p className="text-red-600 mt-4">{graphqlData.error}</p>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
+              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+              transition={{ duration: 0.3, delay: 1.2, ease: "easeInOut" }}
+              className="hidden md:block text-center z-1"
+            >
+              <small className="text-muted-foreground mx-auto">
+                Pinned projects
+              </small>
+              <div className="grid grid-col-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 w-fit mt-4">
+                {graphqlData.data.user.pinnedItems.nodes.map(
+                  (project, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
+                      animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                       transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
+                        duration: 0.3,
+                        delay: index * 0.1 + 1.2,
                         ease: "easeInOut",
                       }}
                     >
-                      <ChevronDown className="h-6 w-6" />
-                    </motion.span>
-                  </div>
-                </motion.div>
-              </>
-            )}
-          </>
+                      <PinnedProject project={project} />
+                    </motion.div>
+                  )
+                )}
+              </div>
+            </motion.div>
+          )
         ) : (
           <div className="h-[148px]" />
         )}
+        <motion.div
+          className="absolute bottom-24 md:bottom-10 left-1/2 transform -translate-x-1/2 z-1"
+          initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
+          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+          transition={{ duration: 0.3, delay: 1.8, ease: "easeInOut" }}
+        >
+          <div className="flex flex-col gap-1 items-center text-muted-foreground">
+            <small className="text-muted-foreground mx-auto">
+              Scroll to discover
+            </small>
+            <motion.span
+              animate={{ y: [0, 8, 0] }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <ChevronDown className="h-6 w-6" />
+            </motion.span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

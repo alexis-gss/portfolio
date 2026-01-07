@@ -7,7 +7,6 @@ function useWindowSize() {
   });
 
   useEffect(() => {
-    // Fonction pour mettre à jour les dimensions
     function handleResize() {
       setWindowSize({
         width: window.innerWidth,
@@ -15,13 +14,10 @@ function useWindowSize() {
       });
     }
 
-    // Ajoute un écouteur d'événements pour "resize"
     window.addEventListener("resize", handleResize);
 
-    // Appelle handleResize une fois au montage pour initialiser les dimensions
     handleResize();
 
-    // Nettoie l'écouteur d'événements au démontage
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 

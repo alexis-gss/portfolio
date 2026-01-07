@@ -1,13 +1,19 @@
 "use client";
 
-import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { GithubRepo } from "@/types/types";
 import slugify from "slugify";
 import Link from "next/link";
 import str from "@/hook/use-string";
 import React from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import ClientImageLoader from "@/components/ClientImageLoader";
 
 export default function ProjectCard(props: {
   project: GithubRepo;
@@ -34,15 +40,12 @@ export default function ProjectCard(props: {
               ratio={16 / 9}
               className="relative rounded-xl overflow-hidden group-hover:shadow-xl duration-300 border"
             >
-              <Image
-                src={props.preview}
-                alt={`Prévisualisation du projet ${props.project.name}`}
-                quality={50}
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-opacity duration-300"
-                fill
-              />
+              {props.preview && (
+                <ClientImageLoader
+                  src={props.preview}
+                  alt={`Prévisualisation du projet ${props.project.name}`}
+                />
+              )}
             </AspectRatio>
           )}
         </CardContent>
