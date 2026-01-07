@@ -119,4 +119,21 @@
   body {
     @apply bg-background text-foreground;
   }
+  @keyframes pulse-big {
+    0% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    70% {
+      opacity: 0;
+      transform: scale(1.6);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.6);
+    }
+  }
+  .animate-pulse-big {
+    animation: pulse-big 1.5s ease-out infinite;
+  }
 }

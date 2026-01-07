@@ -78,8 +78,12 @@ const AppFooter: React.FC = () => {
                   <a
                     href="https://stats.uptimerobot.com/gVFLoANSJb"
                     target="_blank"
+                    className="flex items-center gap-2"
                   >
-                    <span className="w-[1rem] h-[1rem] bg-green-400 rounded-full"></span>
+                    <span className="relative w-4 h-4">
+                      <span className="absolute inset-0 rounded-full bg-[#3bd671] animate-pulse-big"></span>
+                      <span className="relative block w-4 h-4 bg-[#3bd671] rounded-full"></span>
+                    </span>
                     Status
                   </a>
                 </Button>
