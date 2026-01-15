@@ -6,6 +6,15 @@ All notable changes to `portfolio` will be documented in this file.
 - This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html),
 - Commits respect [Conventionnal commits](https://www.conventionalcommits.org/en/v1.0.0/) & use [Gitmoji](https://gitmoji.dev/).
 
+## **[v2.2.0] - 15.01.25**
+
+### Added
+- feat: ✨ add horizontal progress bar
+- feat: 💄 separation of concrete projects and experiments
+- feat: ✨ set search & filter in url parameters
+
+Full changelog: https://github.com/alexis-gss/portfolio/compare/v2.1.0...v2.2.0
+
 ## **[v2.1.0] - 07.01.25**
 
 ### Added
