@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import {
   Command,
   CommandEmpty,
@@ -26,19 +27,30 @@ import { GithubPreviews, GithubRepo } from "@/types/types";
 type Props = {
   repos: GithubRepo[];
   previews: GithubPreviews;
+  initialSearch: string | null;
+  initialFilter: string | null;
+  initialPage: number;
 };
 
-export default function SectionProjects({ repos, previews }: Props) {
+export default function SectionProjects({
+  repos,
+  previews,
+  initialSearch,
+  initialFilter,
+  initialPage,
+}: Props) {
   const { width } = useWindowSize();
   const itemsPerPage = width < 768 ? 4 : 8;
+  const router = useRouter();
+  const pathname = usePathname();
 
   const [allProjects, setAllProjects] = useState<GithubRepo[]>([]);
   const [filteredProjects, setFilteredProjects] = useState<GithubRepo[]>([]);
-  const [search, setSearch] = useState<string | null>(null);
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [search, setSearch] = useState<string | null>(initialSearch);
+  const [selectedTag, setSelectedTag] = useState<string | null>(initialFilter);
   const [tags, setTags] = useState<string[]>([]);
   const [open, setOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(initialPage);
 
   const { mainProjects, labProjects } = useMemo(() => {
     const main: GithubRepo[] = [];
@@ -59,6 +71,13 @@ export default function SectionProjects({ repos, previews }: Props) {
     const start = (currentPage - 1) * itemsPerPage;
     return mainProjects.slice(start, start + itemsPerPage);
   }, [mainProjects, currentPage, itemsPerPage]);
+
+  const handleResetFilters = () => {
+    setSearch(null);
+    setSelectedTag(null);
+    setCurrentPage(1);
+    router.push(`${pathname}#projects`);
+  };
 
   useEffect(() => {
     setAllProjects(repos);
@@ -86,6 +105,28 @@ export default function SectionProjects({ repos, previews }: Props) {
         .sort()
     );
   }, [allProjects]);
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (search) params.set("search", search);
+    if (selectedTag) params.set("filter", selectedTag);
+    if (currentPage > 1) params.set("page", String(currentPage));
+    if (params.toString() || pathname !== "/") {
+      router.push(`?${params.toString()}#projects`);
+    }
+  }, [search, selectedTag, currentPage]);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const el = document.querySelector(hash);
+    if (!el) return;
+
+    setTimeout(() => {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
+  }, []);
 
   return (
     <section
@@ -118,7 +159,7 @@ export default function SectionProjects({ repos, previews }: Props) {
                     className="w-[calc(100%-36px-var(--spacing)*4)] justify-between cursor-pointer"
                     aria-label="Select a tag to filter projects"
                   >
-                    {selectedTag || "Select a tag..."}
+                    {selectedTag ? selectedTag : "Select a tag..."}
                     <ChevronsUpDown className="opacity-50" />
                   </Button>
                 </PopoverTrigger>
@@ -158,11 +199,7 @@ export default function SectionProjects({ repos, previews }: Props) {
                 className="cursor-pointer transition-all duration-300 hover:-translate-y-0.5"
                 variant="default"
                 size="icon"
-                onClick={() => {
-                  setSearch(null);
-                  setSelectedTag(null);
-                  setCurrentPage(1);
-                }}
+                onClick={handleResetFilters}
                 disabled={!search && !selectedTag}
                 aria-label="Remove filters"
               >
