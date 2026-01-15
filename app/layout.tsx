@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import Template from "./template";
 import ThemeProvider from "@/components/ThemeProvider";
 import AppHeader from "@/components/AppHeader";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const title = "Portfolio - Alexis Gousseau";
 const description = "Website presenting Alexis Gousseau's profile as a full-stack web developer and database designer.";
@@ -98,6 +99,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className="antialiased">
         <ThemeProvider>
+          <ScrollProgress />
           <AppHeader />
           <AnimatePresence mode="wait">
             <Template>{children}</Template>
