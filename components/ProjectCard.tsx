@@ -17,7 +17,8 @@ import ClientImageLoader from "@/components/ClientImageLoader";
 
 export default function ProjectCard(props: {
   project: GithubRepo;
-  preview: string | undefined;
+  variant: "default" | "lab";
+  preview?: string;
 }) {
   const slugifyTitle = slugify(props.project.name, {
     lower: true,
@@ -34,8 +35,8 @@ export default function ProjectCard(props: {
           </CardTitle>
           <CardDescription>{props.project.description}</CardDescription>
         </CardHeader>
-        <CardContent>
-          {props.preview && (
+        {props.variant !== "lab" && props.preview && (
+          <CardContent>
             <AspectRatio
               ratio={16 / 9}
               className="relative rounded-xl overflow-hidden group-hover:shadow-xl duration-300 border"
@@ -47,8 +48,8 @@ export default function ProjectCard(props: {
                 />
               )}
             </AspectRatio>
-          )}
-        </CardContent>
+          </CardContent>
+        )}
       </Card>
     </Link>
   );

@@ -30,6 +30,8 @@ type Props = {
 
 export default function SectionProjects({ repos, previews }: Props) {
   const { width } = useWindowSize();
+  const itemsPerPage = width < 768 ? 4 : 8;
+
   const [allProjects, setAllProjects] = useState<GithubRepo[]>([]);
   const [filteredProjects, setFilteredProjects] = useState<GithubRepo[]>([]);
   const [search, setSearch] = useState<string | null>(null);
@@ -37,7 +39,26 @@ export default function SectionProjects({ repos, previews }: Props) {
   const [tags, setTags] = useState<string[]>([]);
   const [open, setOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = width < 768 ? 4 : 8;
+
+  const { mainProjects, labProjects } = useMemo(() => {
+    const main: GithubRepo[] = [];
+    const lab: GithubRepo[] = [];
+
+    filteredProjects.forEach((project) => {
+      if (project.topics?.includes("lab")) {
+        lab.push(project);
+      } else {
+        main.push(project);
+      }
+    });
+
+    return { mainProjects: main, labProjects: lab };
+  }, [filteredProjects]);
+
+  const paginatedMainProjects = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage;
+    return mainProjects.slice(start, start + itemsPerPage);
+  }, [mainProjects, currentPage, itemsPerPage]);
 
   useEffect(() => {
     setAllProjects(repos);
@@ -49,20 +70,22 @@ export default function SectionProjects({ repos, previews }: Props) {
         !search ||
         project.name.toLowerCase().includes(search.toLowerCase()) ||
         project.description?.toLowerCase().includes(search.toLowerCase());
+
       const matchesTag = !selectedTag || project.topics?.includes(selectedTag);
+
       return matchesSearch && matchesTag;
     });
+
     setFilteredProjects(filtered);
   }, [search, selectedTag, allProjects]);
 
   useEffect(() => {
-    setTags([...new Set(allProjects.flatMap((p) => p.topics || []))].sort());
+    setTags(
+      [...new Set(allProjects.flatMap((p) => p.topics || []))]
+        .filter((tag) => tag !== "lab")
+        .sort()
+    );
   }, [allProjects]);
-
-  const paginatedProjects = useMemo(() => {
-    const start = (currentPage - 1) * itemsPerPage;
-    return filteredProjects.slice(start, start + itemsPerPage);
-  }, [filteredProjects, currentPage, itemsPerPage]);
 
   return (
     <section
@@ -70,9 +93,10 @@ export default function SectionProjects({ repos, previews }: Props) {
       className="container flex flex-col justify-between items-center w-full min-h-screen mx-auto p-4"
     >
       <div className="w-full">
-        <h3 className="relative bg-gradient-to-b from-[#18CCFC] to-[#6344F5] bg-clip-text text-4xl sm:text-7xl font-bold text-transparent text-center md:text-start pb-4 mt-4">
+        <h3 className="bg-gradient-to-b from-[#18CCFC] to-[#6344F5] bg-clip-text text-4xl sm:text-7xl font-bold text-transparent text-center md:text-start pb-4 mt-4">
           Projects
         </h3>
+        {/* FILTERS */}
         <div className="sticky top-0 flex flex-col lg:flex-row justify-between items-center bg-background py-4 z-50">
           <div className="flex flex-col md:flex-row justify-center lg:justify-start items-center gap-4 w-full">
             <Input
@@ -147,32 +171,47 @@ export default function SectionProjects({ repos, previews }: Props) {
             </div>
           </div>
           <Pagination
-            totalItems={filteredProjects.length}
+            totalItems={mainProjects.length}
             itemsPerPage={itemsPerPage}
             currentPage={currentPage}
             onPageChange={setCurrentPage}
           />
         </div>
-        {paginatedProjects.length ? (
+        {/* MAIN PROJECTS */}
+        {paginatedMainProjects.length ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 pt-1">
-            {paginatedProjects.map((project, index) => {
+            {paginatedMainProjects.map((project) => {
               const repoIndex =
                 allProjects.findIndex((p) => p.name === project.name) + 1;
               return (
                 <ProjectCard
-                  key={index}
+                  key={project.name}
                   project={project}
                   preview={
                     previews[`repo${String(repoIndex).padStart(2, "0")}`]
                       ?.openGraphImageUrl
                   }
+                  variant="default"
                 />
               );
             })}
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-4 pt-1">
-            <p className="text-center italic">No projects</p>
+          <p className="text-center italic mt-8">No projects</p>
+        )}
+        {/* LAB PROJECTS */}
+        {labProjects.length > 0 && (
+          <div className="mt-8">
+            <small className="text-muted-foreground">Laboratory</small>
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-4">
+              {labProjects.map((project) => (
+                <ProjectCard
+                  key={project.name}
+                  project={project}
+                  variant="lab"
+                />
+              ))}
+            </div>
           </div>
         )}
       </div>

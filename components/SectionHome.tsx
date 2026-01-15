@@ -44,7 +44,7 @@ export default function SectionHome({ graphqlData }: { graphqlData: GithubPinned
           initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           transition={{ duration: 0.3, delay: 0.6, ease: "easeInOut" }}
-          className="relative text-center text-lg font-normal text-neutral-600 dark:text-neutral-400 mx-auto pb-4"
+          className="relative text-center text-lg font-normal text-neutral-600 dark:text-neutral-400 mx-auto"
         >
           Full-stack web developer and database conceptor
         </motion.h2>
@@ -112,26 +112,24 @@ export default function SectionHome({ graphqlData }: { graphqlData: GithubPinned
           <div className="h-[148px]" />
         )}
         <motion.div
-          className="absolute bottom-24 md:bottom-10 left-1/2 transform -translate-x-1/2 z-1"
+          className="absolute bottom-24 md:bottom-10 left-1/2 flex flex-col gap-1 items-center text-muted-foreground transform -translate-x-1/2 z-1"
           initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           transition={{ duration: 0.3, delay: 1.8, ease: "easeInOut" }}
         >
-          <div className="flex flex-col gap-1 items-center text-muted-foreground">
-            <small className="text-muted-foreground mx-auto">
-              Scroll to discover
-            </small>
-            <motion.span
-              animate={{ y: [0, 8, 0] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <ChevronDown className="h-6 w-6" />
-            </motion.span>
-          </div>
+          <small className="text-muted-foreground mx-auto">
+            Scroll to discover
+          </small>
+          <motion.span
+            animate={{ y: [0, 8, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <ChevronDown className="h-6 w-6" />
+          </motion.span>
         </motion.div>
       </div>
     </section>
