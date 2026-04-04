@@ -1,0 +1,3 @@
+#!/bin/sh
+
+npx --no -- commitlint --config node_modules/@alexis-gss/husky-config/commitlint.config.cjs --edit $1

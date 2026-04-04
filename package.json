@@ -9,6 +9,7 @@
     "eslint": "next lint"
   },
   "dependencies": {
+    "@alexis-gss/husky-config": "^1.0.2",
     "@radix-ui/react-aspect-ratio": "^1.1.2",
     "@radix-ui/react-avatar": "^1.1.3",
     "@radix-ui/react-dialog": "^1.1.7",
