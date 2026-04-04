@@ -34,7 +34,7 @@
 
 # Documentation
 
-You can find all the documentation of this project on this link : [Portfolio documentation](https://docs-portfolio.alexis-gousseau.com).
+You can find all the documentation of this project on this link : [Portfolio documentation](https://doc-portfolio.alexis-gousseau.com).
 
 # Contributing
 
@@ -54,7 +54,7 @@ When implementing a feature please create an issue first explaining your idea an
 
 # Changelog
 
-Latest version v2.2.0.
+Latest version [v2.3.0](https://github.com/alexis-gss/portfolio/releases/tag/v2.3.0).
 
 See the [CHANGELOG.md](CHANGELOG.md) file for details.
 

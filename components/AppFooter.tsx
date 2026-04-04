@@ -92,7 +92,7 @@ const AppFooter: React.FC = () => {
             <ul className="flex flex-col sm:flex-row justify-center items-center list-none gap-4">
               <li>© {currentYear} Alexis Gousseau</li>
               <li>All rights reserved</li>
-              <li>Currently v2.2.0</li>
+              <li>Currently v2.3.0</li>
             </ul>
           </div>
         </div>
