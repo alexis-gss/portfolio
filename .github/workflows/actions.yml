@@ -9,12 +9,12 @@ on:
       - opened
 
 jobs:
-  validation-typescript:
-    name: Validation typescript
-    uses: alexis-gss/github-workflows/.github/workflows/validation-typescript.yml@master
+  validation-eslint:
+    name: Validation eslint
+    uses: alexis-gss/github-workflows/.github/workflows/validation-eslint.yml@master
   deployment:
     name: Deployment production
-    needs: ['validation-typescript']
+    needs: ['validation-eslint']
     uses: alexis-gss/github-workflows/.github/workflows/deployment.yml@master
     secrets: inherit
     if: github.ref == 'refs/heads/master'
