@@ -6,6 +6,21 @@ All notable changes to `portfolio` will be documented in this file.
 - This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html),
 - Commits respect [Conventionnal commits](https://www.conventionalcommits.org/en/v1.0.0/) & use [Gitmoji](https://gitmoji.dev/).
 
+## **[v2.4.0] - 26.09.26**
+
+### Added
+- feat: ✨ add sentry next
+
+### Changed
+- chore: ⬆️ bump husky-config dependency
+- chore: 🔍 update all favicons
+
+### Fixed
+- fix: 🐛 update github actions
+- fix: 🚸 sync url params on reset and add sticky shadow on scroll
+
+Full changelog: https://github.com/alexis-gss/portfolio/compare/v2.3.0...v2.4.0
+
 ## **[v2.3.0] - 04.04.26**
 
 ### Added
