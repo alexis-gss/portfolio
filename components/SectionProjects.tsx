@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import {
   Command,
@@ -51,6 +51,24 @@ export default function SectionProjects({
   const [tags, setTags] = useState<string[]>([]);
   const [open, setOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(initialPage);
+  const [isStuck, setIsStuck] = useState(false);
+
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsStuck(!entry.isIntersecting);
+      },
+      { threshold: 0, rootMargin: "0px" },
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
 
   const { mainProjects, labProjects } = useMemo(() => {
     const main: GithubRepo[] = [];
@@ -102,7 +120,7 @@ export default function SectionProjects({
     setTags(
       [...new Set(allProjects.flatMap((p) => p.topics || []))]
         .filter((tag) => tag !== "lab")
-        .sort()
+        .sort(),
     );
   }, [allProjects]);
 
@@ -111,9 +129,12 @@ export default function SectionProjects({
     if (search) params.set("search", search);
     if (selectedTag) params.set("filter", selectedTag);
     if (currentPage > 1) params.set("page", String(currentPage));
-    if (params.toString() || pathname !== "/") {
-      router.push(`?${params.toString()}#projects`);
-    }
+
+    const query = params.toString();
+    router.replace(`${pathname}${query ? `?${query}` : ""}#projects`, {
+      scroll: false,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, selectedTag, currentPage]);
 
   useEffect(() => {
@@ -137,8 +158,14 @@ export default function SectionProjects({
         <h3 className="bg-gradient-to-b from-[#18CCFC] to-[#6344F5] bg-clip-text text-4xl sm:text-7xl font-bold text-transparent text-center md:text-start pb-4 mt-4">
           Projects
         </h3>
+        <div ref={sentinelRef} className="h-px w-full" aria-hidden="true" />
         {/* FILTERS */}
-        <div className="sticky top-0 flex flex-col lg:flex-row justify-between items-center bg-background py-4 z-50">
+        <div
+          className={cn(
+            "sticky top-0 flex flex-col lg:flex-row justify-between items-center bg-background py-4 z-50 transition-shadow duration-300 ease-out",
+            isStuck && "shadow-md lg:shadow-none",
+          )}
+        >
           <div className="flex flex-col md:flex-row justify-center lg:justify-start items-center gap-4 w-full">
             <Input
               value={search || ""}
@@ -185,7 +212,7 @@ export default function SectionProjects({
                                 "ml-auto",
                                 tag === selectedTag
                                   ? "opacity-100"
-                                  : "opacity-0"
+                                  : "opacity-0",
                               )}
                             />
                           </CommandItem>
